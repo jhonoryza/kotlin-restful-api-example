@@ -1,6 +1,7 @@
 package labkita.my.id.restfull.api.controller
 
 import labkita.my.id.restfull.api.model.CategoryRequest
+import labkita.my.id.restfull.api.model.CategoryResponse
 import labkita.my.id.restfull.api.model.WebResponse
 import labkita.my.id.restfull.api.service.CategoryService
 import org.springframework.web.bind.annotation.PostMapping
@@ -14,7 +15,7 @@ class CategoryController(private val categoryService: CategoryService) {
         consumes = ["application/json"],
         produces = ["application/json"]
     )
-    fun store(@RequestBody categoryRequest: CategoryRequest): WebResponse {
+    fun store(@RequestBody categoryRequest: CategoryRequest): WebResponse<CategoryResponse> {
         val data = categoryService.store(categoryRequest)
 
         return WebResponse(

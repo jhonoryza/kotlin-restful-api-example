@@ -1,3 +1,4 @@
+### positive case
 POST http://localhost:8080/api/categories
 Accept: application/json
 Content-Type: application/json
@@ -5,4 +6,25 @@ Content-Type: application/json
 {
   "name": "motor",
   "description": "123"
+}
+
+### deskripsi kosong
+POST http://localhost:8080/api/categories
+Accept: application/json
+Content-Type: application/json
+
+{
+"name": "motoring",
+"description": ""
+}
+
+
+### validation
+POST http://localhost:8080/api/categories
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "",
+  "description": ""
 }

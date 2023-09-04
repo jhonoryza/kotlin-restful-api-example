@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  apps:
+    image: kotlin-restful-api:0.0.1
+    container_name: kotlin-restful-api
+    ports:
+      - "8080:8080"
+    environment:
+      DB_USERNAME: kotlin
+      DB_PASSWORD: kotlin
+      DB_URL: jdbc:postgresql://kotlin-restful-api-postgres:5432/restful-api
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:12-alpine
+    container_name: kotlin-restful-api-postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_PASSWORD: kotlin
+      POSTGRES_USER: kotlin
+      POSTGRES_DB: restful-api
+

@@ -11,8 +11,7 @@ services:
       DB_PASSWORD: kotlin
       DB_URL: jdbc:postgresql://kotlin-restful-api-postgres:5432/restful-api
     depends_on:
-      db:
-        condition: service_healthy
+      - db
 
   db:
     image: postgres:12-alpine
